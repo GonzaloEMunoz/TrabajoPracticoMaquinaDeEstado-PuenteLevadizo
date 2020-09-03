@@ -21,8 +21,6 @@ void estado(void)
 }
 void modificar(void)
 {
-	while(1)
-	{
 		printf("Suba o baje el puente (s/b/e)\n");
 		mod=getchar();
 		fflush(stdin);
@@ -49,7 +47,6 @@ void modificar(void)
 				estado();
 			}
 		}
-	}
 }
 void animacion(void)
 {
