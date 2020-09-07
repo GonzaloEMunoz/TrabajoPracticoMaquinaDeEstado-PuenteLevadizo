@@ -3,9 +3,18 @@ void menu(void);
 void estado(void);
 void modificar(void);
 void animacion(void);
-
-int cp;
-char mod;
+typedef enum{
+	bajo = 0,
+	estado_1 = 1,
+	estado_2 = 2,
+	estado_3 = 3
+}estadosp_t;
+typedef enum{
+	SALIR = 0,
+	SEGUIR = 1
+}exit_p;
+int cp=bajo;
+char modificar_p;
 void menu(void)
 {
 	printf("\n\n1-Estado del puente\n");
@@ -14,7 +23,7 @@ void menu(void)
 }
 void estado(void)
 {
-	if(cp == 0)
+	if(cp == bajo)
 	printf("El puente esta abajo\n");
 	else
 	printf("El puente esta en el estado %d\n",cp);
@@ -22,37 +31,37 @@ void estado(void)
 void modificar(void)
 {
 		printf("Suba o baje el puente (s/b/e)\n");
-		mod=getchar();
+		modificar_p=getchar();
 		fflush(stdin);
-		if(mod== 'e')
+		if(modificar_p== 'e')
 		estado();
-		if(mod== 's')
+		if(modificar_p== 's')
 		{	
-			cp=cp+1;
+			cp++;
 			animacion();
-			if(cp==4)
-				cp=0;
-			if(cp==3)
-			printf("La proxima vez que queremos subir el puente bajara todo\n");
+			if(cp>estado_3)
+				cp=bajo;
+			if(cp==estado_3)
+				printf("La proxima vez que queremos subir el puente bajara todo\n");
 			estado();
 		}
-		if(mod=='b')
+		if(modificar_p=='b')
 		{
-			if(cp==0)
+			if(cp==bajo)
 			estado();
 			else
 			{
 				animacion();
-				cp=cp-1;
+				cp--;
 				estado();
 			}
 		}
 }
 void animacion(void)
 {
-	if(mod== 's')
+	if(modificar_p== 's')
 	{
-		if(cp!= 4)
+		if(cp<=estado_3)
 		{
 			printf("\nSUBIENDO\n");
 			printf("SUBIENDO\n");
@@ -78,7 +87,7 @@ void animacion(void)
 			printf("BAJANDO\n");	
 		}
 	}
-	if(mod=='b')
+	if(modificar_p=='b')
 	{
 		printf("\nBAJANDO\n");
 		printf("BAJANDO\n");

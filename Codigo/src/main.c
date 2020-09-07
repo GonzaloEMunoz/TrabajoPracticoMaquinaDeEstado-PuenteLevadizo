@@ -1,15 +1,14 @@
 #include"..\lib\lib.h"
 main()
 {
-	int op;
-	int s = 1;
-	cp = 0;
-	while(s==1)
+	int opcion;
+	int s = SEGUIR;
+	while(s==SEGUIR)
 	{
 		menu();
-		op=getchar();
+		opcion=getchar();
 		fflush(stdin);
-		switch(op)
+		switch(opcion)
 		{
 			case '1':
 				estado();
@@ -18,7 +17,7 @@ main()
 				modificar();
 				break;
 			case '3':
-				s = 0;
+				s = SALIR;
 				break;		
 		}
 	}
