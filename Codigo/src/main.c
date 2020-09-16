@@ -1,8 +1,6 @@
-#include"..\lib\lib.h"
+#include"..\lib\funciones.c"
 main()
 {
-	int opcion;
-	int s = SEGUIR;
 	while(s==SEGUIR)
 	{
 		menu();
@@ -10,13 +8,13 @@ main()
 		fflush(stdin);
 		switch(opcion)
 		{
-			case '1':
+			case ESTADO:
 				estado();
 				break;
-			case '2':
+			case MODIFICAR_ESTADO:
 				modificar();
 				break;
-			case '3':
+			case SALIR_PROGRAMA:
 				s = SALIR;
 				break;		
 		}
