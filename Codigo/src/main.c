@@ -1,7 +1,7 @@
 #include"..\lib\funciones.c"
 main()
 {	
-	cp=bajo;
+	estadoactual_p=bajo;
 	s=SEGUIR;
 	while(s==SEGUIR)
 	{
@@ -20,7 +20,7 @@ main()
 				if (modificar_p == SUBIR)
 				{
 				
-					switch(cp)
+					switch(estadoactual_p)
 					{
 						case bajo:
 							f_subir(bajo);
@@ -38,7 +38,7 @@ main()
 				}
 				if(modificar_p==BAJAR)
 				{
-					switch(cp)
+					switch(estadoactual_p)
 					{
 						case bajo:
 							f_bajar(bajo);

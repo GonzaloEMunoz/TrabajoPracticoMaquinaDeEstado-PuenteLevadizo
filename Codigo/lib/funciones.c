@@ -7,19 +7,19 @@ void menu(void)
 }
 void estado(void)
 {
-	if(cp == bajo)
+	if(estadoactual_p == bajo)
 	printf("\nEl puente esta abajo\n");
 	else
-	printf("\nEl puente esta en el estado %d\n",cp);
+	printf("\nEl puente esta en el estado %d\n",estadoactual_p);
 }
 void animacion(void)
 {
 	if(modificar_p== SUBIR)
 	{
-		if(cp<=estado_3)
+		if(estadoactual_p<=estado_3)
 		{
 			printf("\nSUBIENDO\n");
-			Sleep(1400);
+			Sleep(1400);			
 		}
 		else
 		{	
@@ -27,31 +27,31 @@ void animacion(void)
 			for(j=estado_3;j>bajo;j--)
 			{
 				printf("\nBAJANDO\n");
-				Sleep(1400);
+				Sleep(1400);		
 			}	
 		}
 	}
 	if(modificar_p==BAJAR)
 	{
 		printf("\nBAJANDO\n");
-		Sleep(1400);
+		Sleep(1400); 					//pequeños delays que le agregue nomas para hacerlo mas divertido
 	}
 }
 void f_subir(int t)
 {	
-	cp++;
+	estadoactual_p++;
 	animacion();
 	if(t==estado_3)
-		cp=bajo;
+		estadoactual_p=bajo;
 	estado();
-	if(cp==estado_3)
+	if(estadoactual_p==estado_3)
 	printf("\nLa proxima vez que quieras subir el puente bajara todo\n");
 }
 void f_bajar(int t)
 {
 	if(t!=bajo)
 	{
-		cp--;
+		estadoactual_p--;
 		animacion();
 		estado();
 	}
