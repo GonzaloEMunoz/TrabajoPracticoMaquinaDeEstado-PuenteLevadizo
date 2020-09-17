@@ -1,4 +1,4 @@
-#include"..\lib\funciones.c"
+#include"..\src\funciones.c"
 main()
 {	
 	estadoactual_p=bajo;
@@ -11,51 +11,27 @@ main()
 		switch(opcion)
 		{
 			case ESTADO:
-				estado();
+				estado(estadoactual_p);
 				break;
 			case MODIFICAR_ESTADO:
-				printf("\nSuba o baje el puente (s/b/e)\n\n");
+				printf("\n\nSuba o baje el puente (s/b/e)\n\n");
 				modificar_p=getchar();
 				fflush(stdin);
-				if (modificar_p == SUBIR)
+				switch(estadoactual_p)
 				{
-				
-					switch(estadoactual_p)
-					{
-						case bajo:
-							f_subir(bajo);
-							break;
-						case estado_1:
-							f_subir(estado_1);
-							break;
-						case estado_2:
-							f_subir(estado_2);
-							break;
-						case estado_3:
-							f_subir(estado_3);
-							break;
-					}
+					case bajo:
+						estadoactual_p=f_bajo(bajo);
+						break;
+					case estado_1:
+						estadoactual_p=f_estado_1(estado_1);
+						break;
+					case estado_2:
+						estadoactual_p=f_estado_2(estado_2);
+						break;
+					case estado_3:
+						estadoactual_p=f_estado_3(estado_3);
+						break;
 				}
-				if(modificar_p==BAJAR)
-				{
-					switch(estadoactual_p)
-					{
-						case bajo:
-							f_bajar(bajo);
-							break;
-						case estado_1:
-							f_bajar(estado_1);
-							break;
-						case estado_2:
-							f_bajar(estado_2);
-							break;
-						case estado_3:
-							f_bajar(estado_3);
-							break;
-					}
-				}
-				if(modificar_p==ESPERAR)
-				estado();
 				break;	
 			case SALIR_PROGRAMA:
 				s = SALIR;

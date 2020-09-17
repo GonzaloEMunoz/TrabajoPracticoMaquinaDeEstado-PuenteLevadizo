@@ -1,10 +1,12 @@
 #include<stdio.h>
 #include<windows.h>
 void menu(void);
-void estado(void);
+void estado(int t);
 void animacion(void);
-void f_subir(int t);
-void f_bajar(int t);
+int f_bajo(int t);
+int f_estado_1(int t);
+int f_estado_2(int t);
+int f_estado_3(int t);
 char modificar_p;	 		// esta variable es para elegir si queremos subir bajar o esperar
 int estadoactual_p; 		// como su nombre lo indica esta variable nos dira el estado actual del puente
 int s,opcion; 
