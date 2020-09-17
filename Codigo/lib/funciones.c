@@ -1,86 +1,60 @@
 #include"..\lib\lib.h"
-void menu(void);
-void estado(void);
-void modificar(void);
-void animacion(void);
 void menu(void)
 {
-	printf("\n\n1-Estado del puente\n");
+	printf("\n1-Estado del puente\n");
 	printf("2-Modificar el estado del puente\n");
 	printf("3-Salir\n\n\n\n\n");
 }
 void estado(void)
 {
 	if(cp == bajo)
-	printf("El puente esta abajo\n");
+	printf("\nEl puente esta abajo\n");
 	else
-	printf("El puente esta en el estado %d\n",cp);
-}
-void modificar(void)
-{
-		printf("Suba o baje el puente (s/b/e)\n");
-		modificar_p=getchar();
-		fflush(stdin);
-		if(modificar_p== 'e')
-		estado();
-		if(modificar_p== 's')
-		{	
-			cp++;
-			animacion();
-			if(cp>estado_3)
-				cp=bajo;
-			if(cp==estado_3)
-				printf("La proxima vez que queremos subir el puente bajara todo\n");
-			estado();
-		}
-		if(modificar_p=='b')
-		{
-			if(cp==bajo)
-			estado();
-			else
-			{
-				animacion();
-				cp--;
-				estado();
-			}
-		}
+	printf("\nEl puente esta en el estado %d\n",cp);
 }
 void animacion(void)
 {
-	if(modificar_p== 's')
+	if(modificar_p== SUBIR)
 	{
 		if(cp<=estado_3)
 		{
 			printf("\nSUBIENDO\n");
-			printf("SUBIENDO\n");
-			printf("SUBIENDO\n");
-			printf("SUBIENDO\n");
-			printf("SUBIENDO\n");
+			Sleep(1400);
 		}
 		else
-		{
-			printf("\nBAJANDO\n");
-			printf("BAJANDO\n");
-			printf("BAJANDO\n");
-			printf("BAJANDO\n");
-			printf("BAJANDO\n");
-			printf("BAJANDO\n");
-			printf("BAJANDO\n");
-			printf("BAJANDO\n");
-			printf("BAJANDO\n");
-			printf("BAJANDO\n");
-			printf("BAJANDO\n");
-			printf("BAJANDO\n");
-			printf("BAJANDO\n");
-			printf("BAJANDO\n");	
+		{	
+			int j;
+			for(j=estado_3;j>bajo;j--)
+			{
+				printf("\nBAJANDO\n");
+				Sleep(1400);
+			}	
 		}
 	}
-	if(modificar_p=='b')
+	if(modificar_p==BAJAR)
 	{
 		printf("\nBAJANDO\n");
-		printf("BAJANDO\n");
-		printf("BAJANDO\n");
-		printf("BAJANDO\n");
-		printf("BAJANDO\n");
+		Sleep(1400);
 	}
+}
+void f_subir(int t)
+{	
+	cp++;
+	animacion();
+	if(t==estado_3)
+		cp=bajo;
+	estado();
+	if(cp==estado_3)
+	printf("\nLa proxima vez que quieras subir el puente bajara todo\n");
+}
+void f_bajar(int t)
+{
+	if(t!=bajo)
+	{
+		cp--;
+		animacion();
+		estado();
+	}
+	else
+		estado();
 }
