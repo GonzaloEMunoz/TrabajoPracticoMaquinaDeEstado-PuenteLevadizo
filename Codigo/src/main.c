@@ -2,25 +2,40 @@
 main()
 {	
 	estadoactual_p=bajo;
-	while(1)
+	s=SEGUIR;
+	while(s==SEGUIR)
 	{
-		printf("Suba o baje el puente (s/b/e)\n\n\n");
-		modificar_p=getchar();
+		menu();
+		opcion=getchar();
 		fflush(stdin);
-		switch(estadoactual_p)
+		switch(opcion)
 		{
-			case bajo:
-				estadoactual_p=f_bajo(bajo);
+			case ESTADO:
+				estado(estadoactual_p);
 				break;
-			case estado_1:
-				estadoactual_p=f_estado_1(estado_1);
-				break;
-			case estado_2:
-				estadoactual_p=f_estado_2(estado_2);
-				break;
-			case estado_3:
-				estadoactual_p=f_estado_3(estado_3);
-				break;
+			case MODIFICAR_ESTADO:
+				printf("\n\nSuba o baje el puente (s/b/e)\n\n");
+				modificar_p=getchar();
+				fflush(stdin);
+				switch(estadoactual_p)
+				{
+					case bajo:
+						estadoactual_p=f_bajo(bajo);
+						break;
+					case estado_1:
+						estadoactual_p=f_estado_1(estado_1);
+						break;
+					case estado_2:
+						estadoactual_p=f_estado_2(estado_2);
+						break;
+					case estado_3:
+						estadoactual_p=f_estado_3(estado_3);
+						break;
+				}
+				break;	
+			case SALIR_PROGRAMA:
+				s = SALIR;
+				break;		
 		}
 	}
 }
