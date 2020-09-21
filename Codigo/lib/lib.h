@@ -8,7 +8,6 @@ int f_estado_2(int t);
 int f_estado_3(int t);
 char modificar_p;	 		// esta variable es para elegir si queremos subir bajar o esperar
 int estadoactual_p; 		// como su nombre lo indica esta variable nos dira el estado actual del puente
-int s,opcion; 
 typedef enum{
 	bajo = 0,
 	estado_1 = 1,
