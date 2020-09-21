@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<windows.h>
-void menu(void);
 void estado(int t);
 void animacion(void);
 int f_bajo(int t);
@@ -17,16 +16,7 @@ typedef enum{
 	estado_3 = 3
 }estados_p;            		//estos son todos los estados posibles que tiene el puente 
 typedef enum{
-	SALIR = 0,
-	SEGUIR = 1
-}exit_p;
-typedef enum{
 	BAJAR='b',
 	SUBIR='s',
 	ESPERAR='e'
-}modificacion_p;			
-typedef enum{
-	ESTADO = '1',
-	MODIFICAR_ESTADO = '2',
-	SALIR_PROGRAMA = '3'
-}MENU_p;					//las etiquetas del menu principal 
+}modificacion_p;

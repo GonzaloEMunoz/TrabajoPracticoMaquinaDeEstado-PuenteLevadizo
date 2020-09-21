@@ -1,16 +1,10 @@
 #include"..\lib\lib.h"
-void menu(void)
-{
-	printf("\n1-Estado del puente\n");
-	printf("2-Modificar el estado del puente\n");
-	printf("3-Salir\n\n\n\n\n");
-}
 void estado(int t)
 {
 	if(t == bajo)
-	printf("\nEl puente esta abajo\n");
+	printf("\nEl puente esta abajo\n\n");
 	else
-	printf("\nEl puente esta en el estado %d\n",t);
+	printf("\nEl puente esta en el estado %d\n\n",t);
 }
 void animacion(void)
 {
@@ -88,7 +82,7 @@ int f_estado_2(int t)
 		t++;
 		animacion();
 		estado(t);
-		printf("\nLa proxima vez que intentes subir el puente bajara todo\n");
+		printf("\nLa proxima vez que intentes subir el puente bajara todo\n\n");
 		return t;
 	}
 	if(modificar_p==ESPERAR)
