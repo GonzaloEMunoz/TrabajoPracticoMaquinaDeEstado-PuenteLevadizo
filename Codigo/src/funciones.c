@@ -1,4 +1,4 @@
-#include"..\lib\lib.h"
+#include"lib.h"
 void estado(int t)
 {
 	if(t == bajo)
@@ -31,7 +31,7 @@ void animacion(void)
 		Sleep(1400); 					//pequeños delays que le agregue nomas para hacerlo mas divertido
 	}
 }
-int f_bajo(int t)
+estados_p f_bajo(int t)
 {
 	if(modificar_p!=SUBIR)
 	{
@@ -46,7 +46,7 @@ int f_bajo(int t)
 		return t;
 	}
 }
-int f_estado_1(int t)
+estados_p f_estado_1(int t)
 {
 	if(modificar_p==BAJAR)
 	{
@@ -68,7 +68,7 @@ int f_estado_1(int t)
 		return t;
 	}
 }
-int f_estado_2(int t)
+estados_p f_estado_2(int t)
 {
 	if(modificar_p==BAJAR)
 	{
@@ -91,7 +91,7 @@ int f_estado_2(int t)
 		return t;
 	}
 }
-int f_estado_3(int t)
+estados_p f_estado_3(int t)
 {
 	if(modificar_p==BAJAR)
 	{

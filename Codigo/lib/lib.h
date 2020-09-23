@@ -2,10 +2,6 @@
 #include<windows.h>
 void estado(int t);
 void animacion(void);
-int f_bajo(int t);
-int f_estado_1(int t);
-int f_estado_2(int t);
-int f_estado_3(int t);
 char modificar_p;	 		// esta variable es para elegir si queremos subir bajar o esperar
 int estadoactual_p; 		// como su nombre lo indica esta variable nos dira el estado actual del puente
 typedef enum{
@@ -19,3 +15,7 @@ typedef enum{
 	SUBIR='s',
 	ESPERAR='e'
 }modificacion_p;
+estados_p f_bajo(int t);
+estados_p f_estado_1(int t);
+estados_p f_estado_2(int t);
+estados_p f_estado_3(int t);

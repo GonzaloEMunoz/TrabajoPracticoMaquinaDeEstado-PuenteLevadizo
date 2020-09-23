@@ -1,4 +1,4 @@
-#include"..\src\funciones.c"
+#include"lib.h"
 main()
 {	
 	estadoactual_p=bajo;
