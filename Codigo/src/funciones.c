@@ -3,14 +3,18 @@ void estado(int t)
 {
 	if(t == bajo)
 	printf("\nEl puente esta abajo\n\n");
-	else
-	printf("\nEl puente esta en el estado %d\n\n",t);
+	if(t == abierto25)
+	printf("\nEl puente esta abierto 25 grados\n");
+	if(t == abierto50)
+	printf("\nEl puente esta abierto 50 grados\n");
+	if(t == abierto75)
+	printf("\nEl puente esta abierto 75 grados\n");
 }
 void animacion(void)
 {
 	if(modificar_p== SUBIR)
 	{
-		if(estadoactual_p!=estado_3)
+		if(estadoactual_p!=abierto75)
 		{
 			printf("\nSUBIENDO\n");
 			Sleep(1400);			
@@ -18,10 +22,14 @@ void animacion(void)
 		else
 		{	
 			int j;
-			for(j=estado_3;j>bajo;j--)
+			for(j=abierto75;j>bajo;j--)
 			{
 				printf("\nBAJANDO\n");
-				Sleep(1400);		
+				Sleep(1400);	
+				if(j==abierto75)
+				printf("\n50 GRADOS\n");
+				if(j==abierto50)
+				printf("\n25 GRADOS\n");	
 			}	
 		}
 	}
@@ -46,7 +54,7 @@ estados_p f_bajo(int t)
 		return t;
 	}
 }
-estados_p f_estado_1(int t)
+estados_p f_abierto25grados(int t)
 {
 	if(modificar_p==BAJAR)
 	{
@@ -68,7 +76,7 @@ estados_p f_estado_1(int t)
 		return t;
 	}
 }
-estados_p f_estado_2(int t)
+estados_p f_abierto50grados(int t)
 {
 	if(modificar_p==BAJAR)
 	{
@@ -82,7 +90,7 @@ estados_p f_estado_2(int t)
 		t++;
 		animacion();
 		estado(t);
-		printf("\nLa proxima vez que intentes subir el puente bajara todo\n\n");
+		printf("\n\nADVERTENCIA LA PROXIMA VEZ QUE INTENTES SUBIR EL PUENTE BAJARA TODO\n\n");
 		return t;
 	}
 	if(modificar_p==ESPERAR)
@@ -91,7 +99,7 @@ estados_p f_estado_2(int t)
 		return t;
 	}
 }
-estados_p f_estado_3(int t)
+estados_p f_abierto75grados(int t)
 {
 	if(modificar_p==BAJAR)
 	{

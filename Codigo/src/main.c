@@ -12,14 +12,14 @@ main()
 			case bajo:
 				estadoactual_p=f_bajo(bajo);
 				break;
-			case estado_1:
-				estadoactual_p=f_estado_1(estado_1);
+			case abierto25:
+				estadoactual_p=f_abierto25grados(abierto25);
 				break;
-			case estado_2:
-				estadoactual_p=f_estado_2(estado_2);
+			case abierto50:
+				estadoactual_p=f_abierto50grados(abierto50);
 				break;
-			case estado_3:
-				estadoactual_p=f_estado_3(estado_3);
+			case abierto75:
+				estadoactual_p=f_abierto75grados(abierto75);
 				break;
 		}
 	}
